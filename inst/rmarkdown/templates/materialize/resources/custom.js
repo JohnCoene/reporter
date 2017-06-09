@@ -8,6 +8,12 @@ function button(side){
   );
 }
 
+document.getElementById("slide-out").childNodes[3].className = "section table-of-contents";
+
+$(document).ready(function () {
+    $('h1').addClass('scrollspy');
+});
+
 $(document).ready(function(){
-    $('.side-nav').scrollSpy();
+    $('.scrollspy').scrollSpy();
 });
