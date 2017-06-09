@@ -1,0 +1,14 @@
+Package: reporter
+Type: Package
+Title: Set of Semantic UI report formats for Rmarkdown
+Version: 0.1.0
+Authors@R: person("John", "Coene", email = "jcoenep@gmail.com", role = c("aut", "cre"))
+Maintainer: John Coene <jcoenep@gmail.com>
+Description: set of Semantic UI report formats for Rmarkdown.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+    rmarkdown,
+    htmltools
