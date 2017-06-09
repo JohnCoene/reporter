@@ -51,21 +51,21 @@
 
   </head>
   <body>
-    <header></header>
-
-    <main>
-
+    <header>
     $if(toc)$
-     <ul id="slide-out" class="side-nav">
+     <ul id="slide-out" class="side-nav $if(toc_fixed)$$toc_fixed$$endif$">
        <li>
          <div class="userView">
            <div class="background">
+             $if(toc_bg)$
+             <img src="$toc_bg$" class="responsive-img">
+             $endif$
           </div>
-          $if(toc_img)$
-            <a href="#!user"><img class="circle" src="$toc_img$"></a>
+          $if(toc_logo)$
+            <a href="#!user"><img class="circle" src="$toc_logo$"></a>
           $endif$
           <a id="$idprefix$toctitle">
-            <span class="grey-text text-darken-2 name">$if(toctitle)$$toctitle$$else$Table of Contents$endif$</span>
+            <span class="$toc_color$ name">$if(toctitle)$$toctitle$$else$Table of Contents$endif$</span>
           </a>
         </div>
       </li>
@@ -73,6 +73,8 @@
       </ul>
 
     <!--menu button-->
+    $if(toc_fixed)$
+    $else$
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-effect waves-light $toc_btn$ button-collapse z-depth-3"
         href="#"
@@ -81,6 +83,10 @@
         </a>
       </div>
     $endif$
+    $endif$
+    </header>
+
+    <main>
 
       $if(container)$
       <div class="$container$">

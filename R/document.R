@@ -25,9 +25,12 @@
 materialize_document <- function(
                             toc = FALSE,
                             toc_depth = 1,
-                            toc_img = NULL,
+                            toc_bg = NULL,
+                            toc_logo = NULL,
+                            toc_color = "black-text",
                             toc_side = "left",
                             toc_btn = "red",
+                            toc_fixed = FALSE,
                             container = TRUE,
                             fig_width = 6.5,
                             fig_height = 4,
@@ -56,7 +59,10 @@ materialize_document <- function(
   args <- c(args, rmarkdown::pandoc_toc_args(toc = toc, toc_depth = toc_depth))
   args <- c(args, rmarkdown::pandoc_variable_arg("toc_side", toc_side))
   args <- c(args, rmarkdown::pandoc_variable_arg("toc_btn", toc_btn))
-  if(!is.null(toc_img)) add_graphic("toc_img", toc_img)
+  args <- c(args, rmarkdown::pandoc_variable_arg("toc_color", toc_color))
+  if(!is.null(toc_logo)) add_graphic("toc_logo", toc_logo)
+  if(!is.null(toc_bg)) add_graphic("toc_bg", toc_bg)
+  if(isTRUE(toc_fixed)) args <- c(args, rmarkdown::pandoc_variable_arg("toc_fixed", "fixed"))
 
   # template
   default_template <- system.file(

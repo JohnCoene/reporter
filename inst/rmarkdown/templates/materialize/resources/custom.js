@@ -7,3 +7,7 @@ function button(side){
     }
   );
 }
+
+$(document).ready(function(){
+    $('.side-nav').scrollSpy();
+});
