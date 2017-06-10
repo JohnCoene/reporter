@@ -4,23 +4,26 @@
 \alias{materialize_document}
 \title{fabric report}
 \usage{
-materialize_document(toc = FALSE, toc_depth = 1, toc_img = NULL,
-  toc_side = "left", toc_btn = "red", container = TRUE, fig_width = 6.5,
-  fig_height = 4, fig_retina = 2, fig_caption = FALSE, keep_md = FALSE,
-  smart = TRUE, self_contained = TRUE, pandoc_args = NULL,
-  mathjax = "default", highlight = "default", extra_dependencies = NULL,
-  ...)
+materialize_document(toc = FALSE, toc_depth = 1, toc_bg = NULL,
+  toc_logo = NULL, toc_color = "black-text", toc_side = "left",
+  toc_btn = "red", toc_fixed = FALSE, banner = NULL, container = TRUE,
+  fig_width = 6.5, fig_height = 4, fig_retina = 2, fig_caption = FALSE,
+  keep_md = FALSE, smart = TRUE, self_contained = TRUE,
+  pandoc_args = NULL, mathjax = "default", highlight = "default",
+  extra_dependencies = NULL, ...)
 }
 \arguments{
 \item{toc}{whether to render table of content.}
 
 \item{toc_depth}{depth of table of content, defaults to \code{2}.}
 
-\item{toc_img}{image to use in table of content.}
-
 \item{toc_side}{side from which table of content should expand.}
 
 \item{toc_btn}{table of content button color.}
+
+\item{toc_fixed}{whether to use a fixed table of content, defaults to \code{FALSE}.}
+
+\item{banner}{banner image, optional.}
 
 \item{container}{whether to use a container, defaults to \code{TRUE}.}
 
@@ -46,6 +49,8 @@ You can pass an alternate URL or pass NULL to exclude MathJax entirely.}
 \item{extra_dependencies}{any additional dependencies, see \code{htmltools::htmlDependency}.}
 
 \item{...}{additional parameters to pass to \code{html_document_base}.}
+
+\item{toc_img}{image to use in table of content.}
 }
 \description{
 fabric report

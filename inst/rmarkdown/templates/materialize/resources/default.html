@@ -6,14 +6,21 @@
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <link href="$materialize-url$/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$
 
     $if(highlightjs)$
     <link rel="stylesheet"
           href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
           $if(html5)$$else$type="text/css" $endif$/>
     <script src="$highlightjs$/highlight.js"></script>
+    $endif$
+
+    <link href="$materialize-url$/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    $if(toc_fixed)$
+    <link href="$custom-url$/fixed_side_nav.css" type="text/css" rel="stylesheet" />
     $endif$
 
     <!--font icons-->
@@ -88,6 +95,12 @@
 
     <main>
 
+      $if(banner)$
+      <div class="parallax-container">
+        <div class="parallax"><img src="$banner$" class="responsive-img"></div>
+      </div>
+      $endif$
+
       $if(container)$
       <div class="$container$">
       $endif$
@@ -116,11 +129,16 @@
 
   <script src="$custom-url$/custom.js"></script>
 
-  $if(toc)$
   <script>
+    $if(toc)$
     button($side$);
+    $endif$
+
+    $if(banner)$
+    banner()
+    $endif$
   </script>
-  $endif$
+
 
   </body>
 </html>

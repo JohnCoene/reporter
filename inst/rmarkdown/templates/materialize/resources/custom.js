@@ -17,3 +17,9 @@ $(document).ready(function () {
 $(document).ready(function(){
     $('.scrollspy').scrollSpy();
 });
+
+function banner(){
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+}

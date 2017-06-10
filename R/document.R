@@ -6,6 +6,8 @@
 #' @param toc_side side from which table of content should expand.
 #' @param toc_btn table of content button color.
 #' @param container whether to use a container, defaults to \code{TRUE}.
+#' @param toc_fixed whether to use a fixed table of content, defaults to \code{FALSE}.
+#' @param banner banner image, optional.
 #' @param fig_width,fig_height,fig_retina,fig_caption figure dimensions.
 #' @param keep_md whether to keep markdown.
 #' @param smart whether to use smart markdown, defaults to \code{TRUE}.
@@ -31,6 +33,7 @@ materialize_document <- function(
                             toc_side = "left",
                             toc_btn = "red",
                             toc_fixed = FALSE,
+                            banner = NULL,
                             container = TRUE,
                             fig_width = 6.5,
                             fig_height = 4,
@@ -62,6 +65,7 @@ materialize_document <- function(
   args <- c(args, rmarkdown::pandoc_variable_arg("toc_color", toc_color))
   if(!is.null(toc_logo)) add_graphic("toc_logo", toc_logo)
   if(!is.null(toc_bg)) add_graphic("toc_bg", toc_bg)
+  if(!is.null(banner)) add_graphic("banner", banner)
   if(isTRUE(toc_fixed)) args <- c(args, rmarkdown::pandoc_variable_arg("toc_fixed", "fixed"))
 
   # template
