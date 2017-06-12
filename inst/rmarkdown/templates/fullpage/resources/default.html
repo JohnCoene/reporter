@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$
+
+    $if(highlightjs)$
+    <link rel="stylesheet"
+          href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
+          $if(html5)$$else$type="text/css" $endif$/>
+    <script src="$highlightjs$/highlight.js"></script>
+    $endif$
+
+    <script src="$jquery-url$/js/jquery.min.js"></script>
+    <script src="$custom-url$/custom.js"></script>
+    <script src="$fullpage-url$/js/scrolloverflow.min.js"></script>
+    <script src="$fullpage-url$/js/jquery.fullpage.min.js"></script>
+    <link href="$fullpage-url$/css/jquery.fullpage.min.css" type="text/css" rel="stylesheet"/>
+    <link href="$custom-url$/style.css" type="text/css" rel="stylesheet" />
+
+    <!--font icons-->
+    <style type="text/css">
+    /* fallback */
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Material Icons'), local('MaterialIcons-Regular'), url(http://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    </style>
+
+    $if(highlighting-css)$
+    <style type="text/css">
+    $highlighting-css$
+    </style>
+    $endif$
+
+  </head>
+  <body>
+
+    $if(toc)$
+    $toc$
+    $endif$
+
+  <div id="fullpage">
+      $body$
+  </div>
+
+
+    $if(mathjax-url)$
+      <!-- dynamically load mathjax for compatibility with self-contained -->
+      <script>
+        (function () {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src  = "$mathjax-url$";
+          document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+      </script>
+    $endif$
+
+  </body>
+</html>
