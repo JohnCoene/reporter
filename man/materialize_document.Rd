@@ -17,6 +17,12 @@ materialize_document(toc = FALSE, toc_depth = 1, toc_bg = NULL,
 
 \item{toc_depth}{depth of table of content, defaults to \code{2}.}
 
+\item{toc_bg}{table of content background, path to an image.}
+
+\item{toc_logo}{image to use in table of content.}
+
+\item{toc_color}{table of content text color, a material class.}
+
 \item{toc_side}{side from which table of content should expand.}
 
 \item{toc_btn}{table of content button color.}
@@ -49,8 +55,6 @@ You can pass an alternate URL or pass NULL to exclude MathJax entirely.}
 \item{extra_dependencies}{any additional dependencies, see \code{htmltools::htmlDependency}.}
 
 \item{...}{additional parameters to pass to \code{html_document_base}.}
-
-\item{toc_img}{image to use in table of content.}
 }
 \description{
 fabric report

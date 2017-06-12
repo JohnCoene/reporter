@@ -2,9 +2,11 @@
 #'
 #' @param toc whether to render table of content.
 #' @param toc_depth depth of table of content, defaults to \code{2}.
-#' @param toc_img image to use in table of content.
+#' @param toc_logo image to use in table of content.
 #' @param toc_side side from which table of content should expand.
 #' @param toc_btn table of content button color.
+#' @param toc_bg table of content background, path to an image.
+#' @param toc_color table of content text color, a material class.
 #' @param container whether to use a container, defaults to \code{TRUE}.
 #' @param toc_fixed whether to use a fixed table of content, defaults to \code{FALSE}.
 #' @param banner banner image, optional.
