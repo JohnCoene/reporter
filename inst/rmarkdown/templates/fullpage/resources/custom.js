@@ -6,8 +6,6 @@ $(document).ready(function() {
       $set.wrapAll('<div class="section" />');
   });
 
-  $('pre').attr("class", "sourceCode r");
-  $('code').attr("class", "sourceCode r");
   $('h1').attr("style", "font-size:0px;");
 
   $('h5').each(function(){
@@ -15,7 +13,7 @@ $(document).ready(function() {
       $set.wrapAll('<div class="slide" />');
   });
 
-  $('h5').attr("style", "font-size:0px;");
+  $('h5').attr("style", "font-size:0px;color:rgba(0,0,0,0);");
 
   $('ul:first').attr("id", "tocMenu");
 
@@ -28,24 +26,19 @@ $(document).ready(function() {
     mn.push(anch);
   });
 
-  function background(col){
-   return col;
-  }
-
   var options =	{
+      continuousVertical: true,
 	    lockAnchors: false,
 	    css3: true,
 	    anchors: mn,
 	    menu: '#tocMenu',
       controlArrows: true,
-		  verticalCentered: true,
-		  loopTop: false,
-		  loopBottom: true,
+		  verticalCentered: center,
 		  animateAnchor: true,
 		  navigation: navigation,
 		  slidesNavigation: slidesNavigation,
 		  navigationPosition: navigationPosition,
-		  sectionsColor: background(col),
+		  sectionsColor: col,
 	  };
 
 	$('#fullpage').fullpage(

@@ -18,21 +18,23 @@
 #' @export
 fullpage_document <- function(
                               toc = FALSE,
-                              centered = TRUE,
+                              center = TRUE,
                               background = NULL,
                               navigation = FALSE,
                               navigationPosition = "right",
                               slidesNavigation = FALSE,
                               fig_width = 6.5,
                               fig_height = 4,
-                              fig_retina = 2,
+                              fig_retina = if (!fig_caption) 2,
                               fig_caption = FALSE,
                               keep_md = FALSE,
                               smart = TRUE,
                               self_contained = TRUE,
                               pandoc_args = NULL,
-                              mathjax = "default",
                               highlight = "default",
+                              mathjax = "default",
+                              css = NULL,
+                              extra_dependencies = NULL,
                               ...) {
 
   add_graphic <- function(name, graphic) {
@@ -59,7 +61,7 @@ fullpage_document <- function(
   args <- c(args, rmarkdown::pandoc_variable_arg("navigation", js_bool(navigation))) # navigation
   args <- c(args, rmarkdown::pandoc_variable_arg("navigationPosition", navigationPosition)) # position
   args <- c(args, rmarkdown::pandoc_variable_arg("slidesNavigation", js_bool(slidesNavigation))) # slide nav
-  args <- c(args, rmarkdown::pandoc_variable_arg("centered", js_bool(centered))) # slide nav
+  args <- c(args, rmarkdown::pandoc_variable_arg("center", js_bool(center))) # center
 
   # template
   default_template <- system.file(
@@ -68,7 +70,6 @@ fullpage_document <- function(
   )
 
   args <- c(args, "--template", rmarkdown::pandoc_path_arg(default_template))
-  args <- c(args, rmarkdown::pandoc_highlight_args(highlight, default = "pygments"))
 
   # fullpage css - js
   fp_src <- system.file("fullPage-2.9.4", package = "reporter")
@@ -85,6 +86,12 @@ fullpage_document <- function(
   cust_path <- rmarkdown::pandoc_path_arg(cust_src)
   args <- c(args, "--variable", paste0("custom-url=", cust_path))
 
+  for (css_file in css)
+    args <- c(args, "--css", pandoc_path_arg(css_file))
+
+  # highlight
+  args <- c(args, rmarkdown::pandoc_highlight_args(highlight, default = "pygments"))
+
   rmarkdown::output_format(
     knitr = rmarkdown::knitr_options_html(fig_width, fig_height, fig_retina, keep_md),
     pandoc = rmarkdown::pandoc_options(to = "html",
@@ -98,5 +105,6 @@ fullpage_document <- function(
                                                 self_contained = self_contained,
                                                 mathjax = mathjax,
                                                 pandoc_args = pandoc_args,
+                                                extra_dependencies = extra_dependencies,
                                                 ...))
 }

@@ -94,6 +94,8 @@ materialize_document <- function(
   cust_path <- rmarkdown::pandoc_path_arg(cust_src)
   args <- c(args, "--variable", paste0("custom-url=", cust_path))
 
+  print(args)
+
   # container
   if(isTRUE(container)) args <- c(args, rmarkdown::pandoc_variable_arg("container", "container"))
 
