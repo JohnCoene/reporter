@@ -28,6 +28,7 @@ $(document).ready(function() {
 
   var options =	{
       continuousVertical: continuousVertical,
+      continuousHorizontal: continuousHorizontal,
 	    lockAnchors: false,
 	    css3: true,
 	    anchors: mn,

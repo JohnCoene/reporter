@@ -1,18 +1,18 @@
 #' fabric report
 #'
-#' @param toc whether to render table of content.
-#' @param fig_width,fig_height,fig_retina,fig_caption figure dimensions.
-#' @param keep_md whether to keep markdown.
-#' @param smart whether to use smart markdown, defaults to \code{TRUE}.
-#' @param self_contained produce a standalone HTML file with no external dependencies, using data:
-#' URIs to incorporate the contents of linked scripts, stylesheets, images, and videos.
-#' Note that even for self contained documents MathJax is still loaded externally
-#' (this is necessary because of it's size).
-#' @param pandoc_args additional command line options to pass to pandoc.
-#' @param mathjax include mathjax. The "default" option uses an https URL from a MathJax CDN.
-#' The "local" option uses a local version of MathJax (which is copied into the output directory).
-#' You can pass an alternate URL or pass NULL to exclude MathJax entirely.
-#' @param highlight synthax highlighter, defaults to \code{pygment}.
+#' @inheritParams rmarkdown::html_document
+#'
+#' @param center whether to center text horizontally and vertically.
+#' @param background background colors, see details.
+#' @param navigation whether to show navigation bar as small circles.
+#' @param continuousVertical efines whether scrolling down in the last section or should scroll d
+#'   own to the first one and if scrolling up in the first section should scroll up to the last one.
+#' @param continuousHorizontal Defines whether sliding right in the last slide should slide right
+#'   to the first one or not, and if scrolling left in the first slide should slide left to the last one or not.
+#' @param navigationPosition Defines which position the navigation bar will be shown (if using one).
+#'   Takes \code{left} or \code{right}.
+#' @param slidesNavigation If set to \code{TRUE} it will show a navigation bar made up of small
+#'   circles for each landscape slider on the site.
 #' @param ... additional parameters to pass to \code{html_document_base}.
 #'
 #' @export
@@ -22,6 +22,7 @@ fullpage_document <- function(
                               background = NULL,
                               navigation = FALSE,
                               continuousVertical = TRUE,
+                              continuousHorizontal = TRUE,
                               navigationPosition = "right",
                               slidesNavigation = FALSE,
                               fig_width = 6.5,
@@ -38,6 +39,8 @@ fullpage_document <- function(
                               css = NULL,
                               extra_dependencies = NULL,
                               ...) {
+
+  if(!navigationPosition %in% c("left", "right")) stop("wrong nevigation position")
 
   add_graphic <- function(name, graphic) {
     if (!is.null(graphic)) {
@@ -67,7 +70,8 @@ fullpage_document <- function(
   args <- c(args, rmarkdown::pandoc_variable_arg("navigationPosition", navigationPosition)) # position
   args <- c(args, rmarkdown::pandoc_variable_arg("slidesNavigation", js_bool(slidesNavigation))) # slide nav
   args <- c(args, rmarkdown::pandoc_variable_arg("center", js_bool(center))) # center
-  args <- c(args, rmarkdown::pandoc_variable_arg("continuousVertical", js_bool(continuousVertical))) # center
+  args <- c(args, rmarkdown::pandoc_variable_arg("continuousVertical", js_bool(continuousVertical))) # vert
+  args <- c(args, rmarkdown::pandoc_variable_arg("continuousHorizontal", js_bool(continuousHorizontal))) # vert
 
   # template
   default_template <- system.file(
@@ -93,7 +97,7 @@ fullpage_document <- function(
   args <- c(args, "--variable", paste0("custom-url=", cust_path))
 
   for (css_file in css)
-    args <- c(args, "--css", pandoc_path_arg(css_file))
+    args <- c(args, "--css", rmarkdown::pandoc_path_arg(css_file))
 
   # highlight
   args <- c(args, rmarkdown::pandoc_highlight_args(highlight, default = "pygments"))
