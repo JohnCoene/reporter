@@ -22,16 +22,16 @@ fullpage_document(toc = FALSE, center = TRUE, background = NULL,
 
 \item{navigation}{whether to show navigation bar as small circles.}
 
-\item{continuousVertical}{efines whether scrolling down in the last section or should scroll d
+\item{continuousVertical}{defines whether scrolling down in the last section or should scroll d
 own to the first one and if scrolling up in the first section should scroll up to the last one.}
 
-\item{continuousHorizontal}{Defines whether sliding right in the last slide should slide right
+\item{continuousHorizontal}{defines whether sliding right in the last slide should slide right
 to the first one or not, and if scrolling left in the first slide should slide left to the last one or not.}
 
-\item{navigationPosition}{Defines which position the navigation bar will be shown (if using one).
+\item{navigationPosition}{defines which position the navigation bar will be shown (if using one).
 Takes \code{left} or \code{right}.}
 
-\item{slidesNavigation}{If set to \code{TRUE} it will show a navigation bar made up of small
+\item{slidesNavigation}{if set to \code{TRUE} it will show a navigation bar made up of small
 circles for each landscape slider on the site.}
 
 \item{fig_width}{Default width (in inches) for figures}

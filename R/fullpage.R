@@ -5,13 +5,13 @@
 #' @param center whether to center text horizontally and vertically.
 #' @param background background colors, see details.
 #' @param navigation whether to show navigation bar as small circles.
-#' @param continuousVertical efines whether scrolling down in the last section or should scroll d
+#' @param continuousVertical defines whether scrolling down in the last section or should scroll d
 #'   own to the first one and if scrolling up in the first section should scroll up to the last one.
-#' @param continuousHorizontal Defines whether sliding right in the last slide should slide right
+#' @param continuousHorizontal defines whether sliding right in the last slide should slide right
 #'   to the first one or not, and if scrolling left in the first slide should slide left to the last one or not.
-#' @param navigationPosition Defines which position the navigation bar will be shown (if using one).
+#' @param navigationPosition defines which position the navigation bar will be shown (if using one).
 #'   Takes \code{left} or \code{right}.
-#' @param slidesNavigation If set to \code{TRUE} it will show a navigation bar made up of small
+#' @param slidesNavigation if set to \code{TRUE} it will show a navigation bar made up of small
 #'   circles for each landscape slider on the site.
 #' @param ... additional parameters to pass to \code{html_document_base}.
 #'
