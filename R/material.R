@@ -1,7 +1,7 @@
 #' fabric report
 #'
-#' @param toc whether to render table of content.
-#' @param toc_depth depth of table of content, defaults to \code{2}.
+#' @inheritParams rmarkdown::html_document
+#'
 #' @param toc_logo image to use in table of content.
 #' @param toc_side side from which table of content should expand.
 #' @param toc_btn table of content button color.
@@ -10,22 +10,8 @@
 #' @param container whether to use a container, defaults to \code{TRUE}.
 #' @param toc_fixed whether to use a fixed table of content, defaults to \code{FALSE}.
 #' @param banner banner image, optional.
-#' @param fig_width,fig_height,fig_retina,fig_caption figure dimensions.
-#' @param keep_md whether to keep markdown.
-#' @param smart whether to use smart markdown, defaults to \code{TRUE}.
-#' @param self_contained produce a standalone HTML file with no external dependencies, using data:
-#' URIs to incorporate the contents of linked scripts, stylesheets, images, and videos.
-#' Note that even for self contained documents MathJax is still loaded externally
-#' (this is necessary because of it's size).
-#' @param pandoc_args additional command line options to pass to pandoc.
-#' @param mathjax include mathjax. The "default" option uses an https URL from a MathJax CDN.
-#' The "local" option uses a local version of MathJax (which is copied into the output directory).
-#' You can pass an alternate URL or pass NULL to exclude MathJax entirely.
-#' @param highlight synthax highlighter, defaults to \code{pygment}.
-#' @param extra_dependencies any additional dependencies, see \code{htmltools::htmlDependency}.
 #' @param ... additional parameters to pass to \code{html_document_base}.
 #'
-#' @export
 materialize_document <- function(
                             toc = FALSE,
                             toc_depth = 1,
