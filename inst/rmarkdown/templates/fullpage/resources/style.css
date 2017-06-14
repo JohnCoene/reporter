@@ -1,0 +1,10 @@
+#tocMenu ul{
+  list-style: none;
+}
+#tocMenu li{
+  display: inline;
+}
+
+#tocMenu{
+  background: transparent;
+}

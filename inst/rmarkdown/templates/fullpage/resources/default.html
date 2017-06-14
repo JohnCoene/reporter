@@ -18,10 +18,11 @@
     $endif$
 
     <script src="$jquery-url$/js/jquery.min.js"></script>
-    <script src="$custom-url$/custom.js"></script>
     <script src="$fullpage-url$/js/scrolloverflow.min.js"></script>
     <script src="$fullpage-url$/js/jquery.fullpage.min.js"></script>
+    <script src="$fullpage-url$/plugins/jquery.fullpage.extensions.min.js"></script>
     <link href="$fullpage-url$/css/jquery.fullpage.min.css" type="text/css" rel="stylesheet"/>
+    <script src="$custom-url$/custom.js"></script>
     <link href="$custom-url$/style.css" type="text/css" rel="stylesheet" />
 
     <!--font icons-->
@@ -80,6 +81,18 @@
         })();
       </script>
     $endif$
+
+    <script>
+    $if(background)$
+      var col = [
+        $for(background)$
+          "$background$",
+        $endfor$
+    ];
+    $else$
+    col = ['#fff'];
+    $endif$
+    </script>
 
   </body>
 </html>

@@ -13,8 +13,6 @@ $(document).ready(function() {
       $set.wrapAll('<div class="slide" />');
   });
 
-  console.log($('ul:first'));
-
   $('ul:first').attr("id", "tocMenu");
 
   var mn = [];
@@ -26,15 +24,26 @@ $(document).ready(function() {
     mn.push(anch);
   });
 
-  console.log(mn);
+  function background(col){
+   return col;
+  }
 
-	$('#fullpage').fullpage(
-	  {
+  var options =	{
 	    lockAnchors:true,
 	    scrollOverflow:true,
-	    css3: false,
+	    css3: true,
 	    anchors: mn,
-	    menu: '#tocMenu'
-	  }
+	    menu: '#tocMenu',
+      controlArrows: true,
+		  verticalCentered: true,
+		  loopTop: false,
+		  loopBottom: true,
+		  sectionsColor: background(col),
+	  };
+
+  console.log(options);
+
+	$('#fullpage').fullpage(
+	  options
 	);
 });

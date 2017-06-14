@@ -18,6 +18,7 @@
 #' @export
 fullpage_document <- function(
                               toc = FALSE,
+                              background = NULL,
                               fig_width = 6.5,
                               fig_height = 4,
                               fig_retina = 2,
@@ -37,11 +38,18 @@ fullpage_document <- function(
     }
   }
 
+  add_multiple <- function(name, x){
+    sapply(background, function(x, y){
+      args <<- c(args, rmarkdown::pandoc_variable_arg(y, x))
+    }, name)
+  }
+
   # arguments
   args <- c()
+  if(!is.null(background)) add_multiple("background", background) # bg
 
-  # toc side
-  args <- c(args, rmarkdown::pandoc_toc_args(toc = toc, toc_depth = 1))
+  # toc
+  args <- c(args, rmarkdown::pandoc_toc_args(toc = toc, toc_depth = 1)) # toc
 
   # template
   default_template <- system.file(
