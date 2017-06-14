@@ -82,6 +82,10 @@
     col = ['#fff'];
     $endif$
 
+    $if(continuousVertical)$
+      var continuousVertical = $continuousVertical$;
+    $endif$
+
     var navigation = $navigation$;
     var navigationPosition = '$navigationPosition$';
     var slidesNavigation = $slidesNavigation$;

@@ -21,6 +21,7 @@ fullpage_document <- function(
                               center = TRUE,
                               background = NULL,
                               navigation = FALSE,
+                              continuousVertical = TRUE,
                               navigationPosition = "right",
                               slidesNavigation = FALSE,
                               fig_width = 6.5,
@@ -33,6 +34,7 @@ fullpage_document <- function(
                               pandoc_args = NULL,
                               highlight = "default",
                               mathjax = "default",
+                              includes = NULL,
                               css = NULL,
                               extra_dependencies = NULL,
                               ...) {
@@ -45,7 +47,7 @@ fullpage_document <- function(
   }
 
   add_multiple <- function(name, x){
-    sapply(background, function(x, y){
+    sapply(x, function(x, y){
       args <<- c(args, rmarkdown::pandoc_variable_arg(y, x))
     }, name)
   }
@@ -56,12 +58,16 @@ fullpage_document <- function(
   args <- c()
   if(!is.null(background)) add_multiple("background", background) # bg
 
+  # header and footer
+  args <- c(args, rmarkdown::includes_to_pandoc_args(includes))
+
   # toc
   args <- c(args, rmarkdown::pandoc_toc_args(toc = toc, toc_depth = 1)) # toc
   args <- c(args, rmarkdown::pandoc_variable_arg("navigation", js_bool(navigation))) # navigation
   args <- c(args, rmarkdown::pandoc_variable_arg("navigationPosition", navigationPosition)) # position
   args <- c(args, rmarkdown::pandoc_variable_arg("slidesNavigation", js_bool(slidesNavigation))) # slide nav
   args <- c(args, rmarkdown::pandoc_variable_arg("center", js_bool(center))) # center
+  args <- c(args, rmarkdown::pandoc_variable_arg("continuousVertical", js_bool(continuousVertical))) # center
 
   # template
   default_template <- system.file(

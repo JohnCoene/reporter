@@ -27,7 +27,7 @@ $(document).ready(function() {
   });
 
   var options =	{
-      continuousVertical: true,
+      continuousVertical: continuousVertical,
 	    lockAnchors: false,
 	    css3: true,
 	    anchors: mn,
@@ -39,7 +39,9 @@ $(document).ready(function() {
 		  slidesNavigation: slidesNavigation,
 		  navigationPosition: navigationPosition,
 		  sectionsColor: col,
+		  dragAndMove: true,
 	  };
+
 
 	$('#fullpage').fullpage(
 	  options
