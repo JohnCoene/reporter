@@ -18,7 +18,11 @@
 #' @export
 fullpage_document <- function(
                               toc = FALSE,
+                              centered = TRUE,
                               background = NULL,
+                              navigation = FALSE,
+                              navigationPosition = "right",
+                              slidesNavigation = FALSE,
                               fig_width = 6.5,
                               fig_height = 4,
                               fig_retina = 2,
@@ -44,12 +48,18 @@ fullpage_document <- function(
     }, name)
   }
 
+  js_bool <- function(x) ifelse(isTRUE(x), "true", "false")
+
   # arguments
   args <- c()
   if(!is.null(background)) add_multiple("background", background) # bg
 
   # toc
   args <- c(args, rmarkdown::pandoc_toc_args(toc = toc, toc_depth = 1)) # toc
+  args <- c(args, rmarkdown::pandoc_variable_arg("navigation", js_bool(navigation))) # navigation
+  args <- c(args, rmarkdown::pandoc_variable_arg("navigationPosition", navigationPosition)) # position
+  args <- c(args, rmarkdown::pandoc_variable_arg("slidesNavigation", js_bool(slidesNavigation))) # slide nav
+  args <- c(args, rmarkdown::pandoc_variable_arg("centered", js_bool(centered))) # slide nav
 
   # template
   default_template <- system.file(
