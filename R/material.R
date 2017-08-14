@@ -11,7 +11,6 @@
 #' @param toc_fixed whether to use a fixed table of content, defaults to \code{FALSE}.
 #' @param banner banner image, optional.
 #' @param ... additional parameters to pass to \code{html_document_base}.
-#'
 materialize_document <- function(
                             toc = FALSE,
                             toc_depth = 1,

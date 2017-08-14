@@ -6,7 +6,7 @@
 \usage{
 fullpage_document(toc = FALSE, center = TRUE, background = NULL,
   navigation = FALSE, continuousVertical = TRUE,
-  continuousHorizontal = TRUE, navigationPosition = "right",
+  continuousHorizontal = TRUE, navigationPosition = "none",
   slidesNavigation = FALSE, fig_width = 6.5, fig_height = 4,
   fig_retina = if (!fig_caption) 2, fig_caption = FALSE, keep_md = FALSE,
   smart = TRUE, self_contained = TRUE, pandoc_args = NULL,
@@ -29,7 +29,7 @@ own to the first one and if scrolling up in the first section should scroll up t
 to the first one or not, and if scrolling left in the first slide should slide left to the last one or not.}
 
 \item{navigationPosition}{defines which position the navigation bar will be shown (if using one).
-Takes \code{left} or \code{right}.}
+defaults to \code{none}, also takes \code{left}, \code{right}.}
 
 \item{slidesNavigation}{if set to \code{TRUE} it will show a navigation bar made up of small
 circles for each landscape slider on the site.}

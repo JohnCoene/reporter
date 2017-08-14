@@ -1,4 +1,5 @@
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/reporter.svg?branch=master)](https://travis-ci.org/JohnCoene/reporter)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/reporter?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/reporter)
 
 # reporter 
 
@@ -6,7 +7,12 @@ Rmarkdown formats
 
 ## Formats
 
-- fullpage
+- fullpage - Because you don't like slides but the management does.
 - material (WIP)
 
-## [Documentation](http://john-coene.com/reporter)
+## Documentation
+
+#### Fullpage
+
+[fullpage documentation](http://john-coene.com/reporter)
+[fullpage demo](http://john-coene.com/fullpage_demo.html)

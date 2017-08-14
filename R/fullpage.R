@@ -10,7 +10,7 @@
 #' @param continuousHorizontal defines whether sliding right in the last slide should slide right
 #'   to the first one or not, and if scrolling left in the first slide should slide left to the last one or not.
 #' @param navigationPosition defines which position the navigation bar will be shown (if using one).
-#'   Takes \code{left} or \code{right}.
+#'   defaults to \code{none}, also takes \code{left}, \code{right}.
 #' @param slidesNavigation if set to \code{TRUE} it will show a navigation bar made up of small
 #'   circles for each landscape slider on the site.
 #' @param ... additional parameters to pass to \code{html_document_base}.
@@ -23,7 +23,7 @@ fullpage_document <- function(
                               navigation = FALSE,
                               continuousVertical = TRUE,
                               continuousHorizontal = TRUE,
-                              navigationPosition = "right",
+                              navigationPosition = "none",
                               slidesNavigation = FALSE,
                               fig_width = 6.5,
                               fig_height = 4,
@@ -40,7 +40,7 @@ fullpage_document <- function(
                               extra_dependencies = NULL,
                               ...) {
 
-  if(!navigationPosition %in% c("left", "right")) stop("wrong nevigation position")
+  if(!navigationPosition %in% c("left", "right", "none")) stop("wrong nevigation position")
 
   add_graphic <- function(name, graphic) {
     if (!is.null(graphic)) {
