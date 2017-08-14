@@ -3,6 +3,8 @@
 
 # reporter 
 
+![reporter](http://john-coene.com/img/fullpage_devices.png)
+
 Rmarkdown formats
 
 ## Formats
