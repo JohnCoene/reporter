@@ -16,5 +16,5 @@ Rmarkdown formats
 
 #### Fullpage
 
-[fullpage documentation](http://john-coene.com/reporter)
-[fullpage demo](http://john-coene.com/fullpage_demo.html)
+* [fullpage documentation](http://john-coene.com/reporter)
+* [fullpage demo](http://john-coene.com/fullpage_demo.html)
